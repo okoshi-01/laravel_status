@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//ログインルート一式
+Auth::routes();
+//一覧
+Route::get('/', 'StatusController@show')->name('statuses.show');
+//ステータス変更
+Route::get('/users/edit', 'UserController@edit')->name('users.edit');
+Route::patch('/users', 'UserController@update')->name('users.update');
+
